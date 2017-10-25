@@ -28,6 +28,17 @@
 		<li>git reset HEAD <file name></li>
 		<li>git checkout -- <file name></li>
 		<li>git commit -- amend</li>
+		<li>有两个文件one.html two.html，被修改了，提交的时候
+		只提交了一个，忘了一个，那么我们该如何操作呢
+		</li>
+		<li>git add one.html //先添加到暂存区
+			git commit -m "change1"//提交到工作区
+
+			git add two.html //先添加到暂存区
+			git commit -m "change1 one.html and two.html" -- amend
+			//先把第一次提交的撤回到工作区再一起提交到工作区
+		
+		</li>
 	</ul>
  </div>
   <div style="width:100px;height:100px;background:red;">
