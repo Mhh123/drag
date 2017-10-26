@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>展示页</title>
+  <style>
+    body{margin:0;padding:0;width:100%;height:900px;background:#999;}
+	#div{margin-top:10%;padding:0;width:100%;height:500px;background:url("3d/bg.png") no-repeat center;background-size:cover;perspective:800px;}
+	ul{margin:0;padding:0;width:300px;height:200px;list-style:none;position:relative;left:0;top:160px;transform-style:preserve-3d;}
+	li{width:300px;height:200px;position:absolute;left:0;color:white;font:40px/343px '宋体';transform-origin:left center center;transform:rotateY(30deg); transition:0.7s ease-in-out;}
+  </style>
+  <script>
+	window.onload=function(){
+	
+		var oDiv=document.getElementById('div');
+		var oUl=document.getElementsByTagName('ul')[0];
+		var aLi=document.getElementsByTagName('li');
+		var arr=['"3d/d (1).png"','"3d/d (2).png"','"3d/d (3).png"','"3d/d (4).png"','"3d/d (5).png"','"3d/d (6).png"','"3d/d (7).png"']
+		
+		
+		oUl.style.left=(oDiv.clientWidth-parseInt(getStyle(oUl,'width')))/2+30+'px';
+		
+		
+		tab(3);
+		
+		for(var i=0;i<aLi.length;i++){
+			
+			aLi[i].onclick=function(){
+				
+				var n=this.index;
+				
+				tab(n);
+			
+			}
+		}
+
+
+		function tab(n){
+			
+			for(var i=0;i<aLi.length;i++){
+			aLi[i].index=i;
+			aLi[i].style.background='url('+arr[i]+')';
+				if(n>=3&&n<7){
+					var m=n-3;
+					if(m<=i&&i<n){
+						aLi[i].style.transform='translateX('+((i-m)*150-450)+'px) translatez('+(i-m)*100+'px) rotateY(30deg)';
+					}else if(i>n&&i<aLi.length){
+						
+						aLi[i].style.transform='translateX('+((i-m)*150-450)+'px) translatez('+(6-(i-m))*100+'px) rotateY(-30deg)';
+					}else if(i==n){
+						aLi[i].style.transform="translatez(300px)";
+					}else if(i<m){
+						aLi[i].style.transform='translateX('+(4-(1-2)*i-m)*150+'px) translatez('+((m-i+5)-6)*100+'px) rotateY(-30deg)';
+					}
+					
+					}
+				if(n<3&&n>=0){
+					var m=n+3;
+
+					if(i>n&&i<=m){
+						aLi[i].style.transform='translateX('+(3+i-m)*150+'px) translatez('+(m-i)*100+'px) rotateY(-30deg)';
+						
+					}else if(i<n){
+					
+						aLi[i].style.transform='translateX('+(3+i-m)*150+'px) translatez('+((i+6)-m)*100+'px) rotateY(30deg)';
+
+					}else if(i==n){
+						aLi[i].style.transform="translatez(300px)";
+					}else if(i>m){
+						aLi[i].style.transform='translateX('+(i-m-4)*150+'px) translatez('+(i-m-1)*100+'px) rotateY(30deg)';
+					}
+
+
+
+
+					}
+				
+				
+			}
+		}
+		function getStyle(obj,attr){
+		
+			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+
+		}
+	
+	}
+  </script>
+ </head>
+ <body>
+	<div id="div">
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+		</ul>
+	</div>
+ </body>
+</html>

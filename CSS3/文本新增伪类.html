@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>文本新增伪类</title>
+<style>
+p{width:300px;border:1px solid #000;font:12px/30px "宋体";padding:10px;}
+p:first-line{ background:green;}
+p:first-letter{ font-size:50px;}
+p::selection{background:#F60;color:#690;} /* 设置选中文字后的背景色和前景色* ::selection”只能设置两个属性，一个就是background,另一个就是color属性，设置其他属性是没有任何效果的。 */ 
+
+p:before{ content:"MiaoV"; display:block; border:1px solid #000;}
+p:after{ content:"MiaoV"; display:block; border:1px solid #000;}
+#div{border:1px solid #ccc;display:inline-block;}
+
+#p1{direction:ltr;}/* 默认:从左向右 */
+#p1{border:1px solid red;direction:rtl;}/* 从右向左 */
+#p1{unicode-bidi:bidi-override;}/* unicode-bidi 属性设置文本的方向。 */
+#p1:first-line{background:none;}
+#p1:first-letter{font-size:20px;}
+#p1{font:bold 20px/30px serif,cursive;}
+#p1:before{display:none;}
+#p1:after{display:none;}
+
+/* text-overflow 属性规定当文本溢出包含元素时发生的事情。
+clip		修剪文本。	
+ellipsis	显示省略符号来代表被修剪的文本。	
+string		使用给定的字符串来代表被修剪的文本。 */
+</style>
+</head>
+<body>
+<p>前端开发的世界从未有过无声的寂静，精彩纷呈的互联网也不曾出现片刻安宁，
+在 HTML5&CSS3 被炒至沸沸扬扬的今天，
+全面系统的掌握此项技能，是加重技术含金量的重要砝码！
+妙味课堂现已为你开启一个崭新的职业规划……</p>
+<div id="div">
+<h1>文字排版</h1>
+<p id="p1">秒味课堂</p>
+</div>
+</body>
+</html>

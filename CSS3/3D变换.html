@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>3D变换</title>
+  <style>/* 注意子元素不要加景深，否则影响3d效果； */
+  div{display:inline-block;margin:0;padding:0;box-sizing:border-box;border:1px solid #000;width:200px;height:200px;padding:50px;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;}
+	div[class^="box"]{-webkit-perspective:800px;perspective:800px;}
+	div[class^="mybox"]{border:none;padding:0;width:100px;height:100px;color:white;font:bold 30px/100px '宋体';text-align:center; background:red;transition:1s;}
+	div[class="box5"]{vertical-align:top;}
+	#myshow{border:none;padding:0;margin:0;width:100px;height:100px;transform-origin:50% 50% -50px;transition:2s;-webkit-transform-style:preserve-3d;}
+	div[class^="mybox5"]{position:absolute;left:0px;top:0px;}
+	div[class="mybox1-1"]:hover{transform:rotateX(180deg);}
+	div[class="mybox2-2"]:hover{transform:rotateY(180deg);}
+	div[class="mybox3-3"]:hover{transform:rotateZ(180deg);}
+	div[class="mybox4-4"]:hover{transform:translateZ(-200px);}
+	div[class^="box5"]:hover #myshow{transform:rotateX(360deg);}
+  </style>
+ </head>
+ <body><!--网页主题-->
+ <h3>/* 注意子元素不要加景深，否则影响3d效果； */</h3>
+	<div class="box1">
+		<div class="mybox1-1">1</div>
+	</div>
+	<div class="box2">
+		<div class="mybox2-2">2</div>
+	</div>
+	<div class="box3">
+		<div class="mybox3-3">3</div>
+	</div>
+	<div class="box4">
+		<div class="mybox4-4">4</div>
+	</div>
+	<div class="box5" >
+		<div id="myshow" style="position:relative;background:red;">
+		<div class="mybox5-1" style="background:#ff80ff;top:-100px;-webkit-transform-origin:bottom;transform-origin:bottom;transform:rotateX(90deg);">2</div>
+		<div class="mybox5-2" style="background:#ccffff;left:-100px;-webkit-transform-origin:right;transform-origin:right;transform:rotateY(-90deg);">1</div>
+		<div class="mybox5-3" style="background:#ffff00;">3</div>
+		<div class="mybox5-4" style="background:#ccff66;left:100px;-webkit-transform-origin:left;transform-origin:left;transform:rotateY(90deg);">4</div>
+		<div class="mybox5-5" style="background:#33ff99;transform:translateZ(-100px)rotateX(180deg);">5</div>
+		<div class="mybox5-6" style="background:#cc00ff;top:100px;-webkit-transform-origin:top;transform-origin:top;transform:rotateX(-90deg);">6</div>
+		</div>
+	</div>
+ </body>
+</html>

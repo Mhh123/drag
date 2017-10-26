@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Matrix</title>
+  <style>
+  body{padding-bottom:5%;}
+	#wrap1,#wrap2{display:flex;justify-content:space-around;background:red;}
+	#wrap2{background:blue;}
+	
+	div[class^="box"]{float:left;margin:0;padding:0;color:red;font:bold 20px/100px '宋体';text-align:center;display:inline-block;border:1px solid #333;width:200px;height:157px;background:url(img/zt.jpg) no-repeat center;background-size:contain;-webkit-transform:matrix(1.000000,0.000000,0.000000,1.000000,0,0);transform:matrix(1.000000,0.000000,0.000000,1.000000,0,0);}
+	div[class="box1"]{transform:matrix(1.000000,0.000000,0.000000,-1.000000,0,0);}
+	div[class="box2"]{transform:matrix(-1.000000,0.000000,0.000000,1.000000,0,0);}
+	div[class="box3"]{transform:matrix(0.000000,1.000000,1.000000,0.000000,0,0);}
+	div[class="box4"]{transform:matrix(0.000000,-1.000000,1.000000,0.000000,0,0);}
+	div[class="box5"]{transform:matrix(0.000000,1.000000,-1.000000,0.000000,0,0);}
+	
+	div[class="box1-1"]{transform:matrix(-1.000000,0.000000,0.000000,-1.000000,0,0);}
+	div[class="box4-1"]{transform:matrix(0.000000,-1.000000,-1.000000,0.000000,0,0);}
+  </style>
+  <script>
+	window.onload=function(){
+		var aDiv=document.querySelectorAll('div');
+		aDiv[2].onclick=function(){
+			this.style.transform="rotate(45deg)";
+		}
+	
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+	<p>原始属性值//transform:matrix(1.000000,0.000000,0.000000,1.000000,0,0);</p>
+	<p>水平方向上的倒影d:-1//transform:matrix(1.000000,0.000000,0.000000,-1.000000,0,0);</p>
+	<p>垂直方向上的倒影a:-1//transform:matrix(-1.000000,0.000000,0.000000,1.000000,0,0);</p>
+	<p>水平&垂直方向上的倒影a:-1&d:-1//transform:matrix(-1.000000,0.000000,0.000000,-1.000000,0,0);</p>
+	<div id="wrap1">
+	<div class="box">原始</div>
+	<div class="box2">水平</div>
+	<div class="box1">垂直</div>
+	<div class="box1-1">垂直</div>
+	</div>
+	<div id="wrap2">
+	<div class="box3">原始1</div>
+	<div class="box5">垂直</div>
+	<div class="box4">水平</div>
+	<div class="box4-1">水平</div>
+	</div>
+	<p>原始1属性值//transform:matrix(0.000000,1.000000,1.000000,0.000000,0,0);</p>
+	<p style="color:red;">//注意虽然原始值1相对于原始值发生了改变但是他依然占据原来的文档位置</p>
+	<p>水平方向上的倒影c:-1//transform:matrix(0.000000,1.000000,-1.000000,0.000000,0,0);</p>
+	<p>垂直方向上的倒影b:-1//transform:matrix(0.000000,-1.000000,1.000000,0.000000,0,0);</p>
+	<p>水平&垂直方向上的倒影b:-1&c:-1//transform:matrix(0.000000,-1.000000,-1.000000,0.000000,0,0);</p>
+	
+ </body>
+</html>

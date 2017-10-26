@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>伪类和伪元素</title>
+  <style>
+	div{width:200px;height:200px;background:url(img/bg.jpg) no-repeat   center;}
+	p{height:30px;padding:0;border:1px solid #ccc;text-align:center;font:bold 18px/30px serif,cursive;}
+	p:nth-child(1){background:red;}
+	/* p:nth-child(odd){background:blue;}//奇数 */
+	/* p:nth-child(even){background:green;}//偶数 */
+	p:nth-last-child(2n){background:#000;}
+	p:nth-of-type(2){background:#ff00ff;}
+	p:nth-last-of-type(2){background:#ccc;}
+	p:empty{background:#000;}
+	a{width:30px;height:30px;padding-left:20px;background:url(img/w.gif) no-repeat bottom left;}
+	span{display:block;height:20px;}
+	p *:only-of-type{background:green;}
+	p *:only-child{background:blue;}
+  </style>
+ </head>
+ <body><!--网页主题-->
+	<div id='div'>
+	<p>1</p>
+	<p>2</p>
+	<p>3</p>
+	<p>4 <span></span></p>
+	<p>5 <span></span><a href="#">链接</a></p>
+	<p></p>
+	</div>
+ </body>
+</html>

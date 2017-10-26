@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>3d幻灯片</title>
+  <style>
+ 
+	#div{margin:0;padding:0;width:1000px;height:400px;border:1px solid red;}
+	#div{margin:100px auto;}
+	#wrap{width:1000px;height:400px;perspective:800px;transform-style:preserve-3d;}
+	#wrap ul{margin:0;padding:0;list-style:none;width:800px;height:360px;position:relative;transform-origin:center center -180px;}
+	#wrap ul li{margin:0;padding:0;width:20px;height:360px;position:relative;display:inline-block;float:left;}
+	#wrap ul li a{margin:0;padding:0;width:20px;height:360px;position:absolute;display:inline-block;}
+	#wrap ul li span{margin:0;padding:0;height:360px;position:absolute;display:inline-block;width:360px;background:#333;}
+	#wrap ul li span:nth-of-type(1){left:-360px;transform-origin:right;transform:rotateY(-90deg);}
+	#wrap ul li span:nth-of-type(2){left:20px;transform-origin:left;transform:rotateY(90deg);}
+	
+  </style>
+  <script>
+	window.onload=function(){
+		var oInp=document.getElementById('input');
+		var oDiv=document.getElementById('div');
+		var oWrap=document.getElementById('wrap');
+		var oUl=document.getElementsByTagName('ul')[0];
+		oInp.onclick=function(){
+			oUl.style.transform="rotateX(180deg)";
+		}
+		var iW=20;
+		var len=Math.floor(oUl.clientWidth/iW);
+		//console.log(Math.floor(len+0.5));//8 向下取整
+		var str;
+		for(var i=0;i<len;i++){
+			let li=document.createElement('li');
+			li.innerHTML="<a href='#' ></a><a href='#'></a><a href='#'></a><a href='#'></a><span></span><span></span>";
+			var m=iW*i;
+			//li.style.left=m+'px';
+		
+
+			let All=li.querySelectorAll('a');
+			
+			
+		
+			All[0].setAttribute('style','top:-360px;background:url(3d/1.jpg) no-repeat;transform-origin:bottom;transform:rotateX(90deg);background-position:-'+m+'px 0px;');
+			All[1].setAttribute('style','transform:translateZ(-360px);background:url(3d/2.jpg) no-repeat;background-position:-'+m+'px 0px;');
+			All[2].setAttribute('style','background:url(3d/3.jpg) no-repeat;background-position:-'+m+'px 0px;');
+			All[3].setAttribute('style','background:url(3d/4.jpg) no-repeat;transform-origin:top;top:360px;transform:rotateX(-90deg);background-position:-'+m+'px 0px;');
+			
+			oUl.appendChild(li);
+		}
+		//console.log(Style[0].innerHTML)
+		var aLi=document.getElementsByTagName('li');
+		
+		
+		function getStyle(obj,attr){
+		
+			return obj.currentStyle? obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+
+		}
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+<!--  注意：要先定位再旋转，否则影响后续3d旋转的效果，造成背景图片会倒立； -->
+ <div id="div">
+	<div id="wrap">
+		<ul>
+		
+		</ul>
+	</div>
+
+ </div>
+ <input type="button" value="点击" id="input">
+ </body>
+</html>

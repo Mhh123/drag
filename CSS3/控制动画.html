@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>控制动画</title>
+<style>
+	/* .ball{
+		 animation-name: mymove; 
+		 animation-duration: 2s; 
+		 animation-timing-function: ease-in-out;
+		 animation-iteration-count: 1;
+		 animation-fill-mode: both;
+		 } */
+	@keyframes mymove{
+		0%{transform:scale(1)}
+		50%{transform:scale(2)}
+		100%{transform:scale(1)}
+	}
+	#box{margin:50px auto;position:absolute;top:100px;transition:all 1s;width:200px;height:200px;background:url(img/zt.jpg) no-repeat center;}
+</style>
+ </head>
+ <body><!--网页主题-->
+	<div id="box" class="ball">
+	</div>
+	<input type="button" value="清空" id="input">
+	<script>
+	window.onload=function(){
+	
+		var oDiv=document.getElementById('box');
+		var oInp=document.getElementById('input');
+		
+		oDiv.onclick=function(){
+			//alert(this.offsetWidth);//200
+			this.style.animation="mymove 1s 1";
+			this.style.left=100+'px';
+			
+			addEnd(this,end);	
+
+		}
+		oInp.onclick=function(){
+			oDiv.removeAttribute("style");
+		}
+		function end(){
+			//oDiv.style.animationFillMode=backwards;
+			oDiv.removeAttribute("style");
+			this.style.left=100+'px';
+			//this.style.transition="0.1s";
+			//this.style.transform="scale(1)";
+			//this.style.opacity=1;
+			removeEnd(this,end);
+		}
+		
+		function addEnd(obj,fn){
+
+			obj.addEventListener('webkitAnimationEnd',fn,false);
+			obj.addEventListener('animationend',fn,false);
+		}
+		function removeEnd(obj,fn){
+
+			obj.removeEventListener('webkitAnimationEnd',fn,false);
+			obj.removeEventListener('animationend',fn,false);
+		}
+
+		}
+	</script>
+ </body>
+</html>

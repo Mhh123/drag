@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>钟表效果</title>
+  <style>
+	.box{ width:300px;height:300px;background:#33ffff;margin:100px auto;position:relative;}
+	.box ul{list-style:none;height:100%;width:100%;position:absolute;margin:0;padding:0;border:1px solid #000;border-radius:50%;}
+	.box ul li{width:2px;height:7px;background:rgba(0,0,0,0.6);position:absolute;left:149px;top:0px;transform-origin:center 150px;}
+	.box ul li:nth-of-type(5n+1){height:15px;background:#000;}
+	.box p{display:inline-block;position:absolute;margin:0;padding:0;transform-origin:center bottom;}
+	#p1{width:8px;height:40px;left:146px;top:110px;background:#000;}
+	#p2{width:6px;height:70px;left:147px;top:80px;background:#ccc;}
+	#p3{width:4px;height:80px;left:148px;top:70px;background:red;}
+	#p4{width:14px;height:14px;left:143px;top:143px;background:#000;border-radius:50%;}
+  </style>
+  <script>
+	window.onload=function(){
+		var oUl=document.getElementById('ul');
+		var oDiv=document.querySelector('div.box');
+		var oHour=document.getElementById("p1");
+		var oMin=document.getElementById("p2");
+		var oSec=document.getElementById("p3");
+		//console.log(oUl.children[0]);//undefined
+		for(var i=0;i<60;i++){
+			var oLi=document.createElement('li');
+			oLi.style.cssText="transform:rotate("+i*6+"deg)";//注意cssText其实就是一个属性集合/
+			//oLi.style.transform="rotate("+i*6+"deg)";
+			//console.log(oLi.style.transform);
+			oUl.appendChild(oLi);
+			//oUl.insertBefore(oLi,oUl.children[0]);//在指定子节点之前插入；
+		}
+		myTime();
+		setInterval(myTime,1000);
+		function myTime(){
+			var myDate=new  Date();
+			var iSecond=myDate.getSeconds();
+			var iMinute=myDate.getMinutes()+iSecond/60;
+			var iHour=myDate.getHours()+iMinute/60;
+			//console.log(typeof (iMinute));//number;
+			oSec.style.cssText="transform:rotate("+iSecond*6+"deg)";
+			oMin.style.cssText="transform:rotate("+iMinute*6+"deg)";
+			oHour.style.cssText="transform:rotate("+iHour*30+"deg)";
+		}
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+	<div class="box">
+		<ul id="ul">
+			
+		</ul>
+		<p id="p1"></p>
+		<p id="p2"></p>
+		<p id="p3"></p>
+		<p id="p4"></p>
+	</div>
+ </body>
+</html>

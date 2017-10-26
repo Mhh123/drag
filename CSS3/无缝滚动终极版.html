@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  
+  <title>无缝滚动</title>
+  <style>
+  @keyframes mymove{
+	0%    {left:-200px;}
+	25%   {left:-100px;}
+	50%   {left:-200px;}
+	75%	  {left:-300px;}
+	100%  {left:-200px;}
+  }
+  body{width:100%;height:900px;}
+	div{width:100%;height:49%;border:1px solid #ccc;margin:50px auto;padding:47px 10px;background:#ffccff;}
+	div[class="my-show"]{display:inline-block;float:left;margin:0;width:202px;height:102px;border:20px solid #ccc;border-image:url(img/hh.png) 20 repeat; overflow:hidden;}
+	ul{padding:0;margin:0;box-sizing:border-box;width:610px;height:100px;list-style:none;position:relative;left:-200px;animation:2s mymove linear infinite;vertical-align:top;}
+	li{margin:0;padding:0;box-sizing:border-box;vertical-align:top;height:100%;width:200px;display:inline-block;background:url(img/zt.jpg) no-repeat center;background-size:contain;border-right:2px solid white;}
+	ul li:nth-of-type(3),ul li a:nth-of-type(2){transform:matrix(-1.000000,0.000000,0.000000,1.000000,0,0);}
+	ul li a{margin:0;padding:0;box-sizing:border-box;display:inline-block;width:50%;height:100px;background:url(img/zt.jpg) no-repeat center;background-position:80% 10%;}
+	
+	ul:hover{animation-play-state:paused;}
+  </style>
+ </head>
+ <body><!--网页主题-->
+	<div id="wrap">
+	<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+	<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+		<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+		<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+		<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+		<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+		<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+		<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+		<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+		<div class="my-show">
+		<ul>
+			<li></li>
+			<li><a href="#_"></a><a href="#_"></a></li>
+			<li></li>
+			
+		</ul>
+		</div>
+	</div>
+ </body>
+</html>

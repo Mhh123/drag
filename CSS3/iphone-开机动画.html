@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>iphone-开机动画</title>
+ <style>
+ body{width:100%;height:100%;background:#000;font:50px/200px "微软雅黑";text-align:center;color:rgba(255,255,255,0.3);}
+	 h1{display:inline-block;padding:0;background:-webkit-linear-gradient(-35deg,rgba(255,255,255,0)5%,rgba(255,255,255,0.6)15%,rgba(255,255,255,1)25%,rgba(255,255,255,1)35%,rgba(255,255,255,0.6)40%,rgba(255,255,255,0)50%,rgba(255,255,255,0)75%,rgba(255,255,255,0)100%) no-repeat -0px 0px;-webkit-background-clip:text;transition:1s;}
+	 h1:hover{background-position:640px 0px;}
+ </style>
+ <script>
+	window.onload=function(){
+		var oH1=document.getElementsByTagName('h1')[0];
+		
+		console.log(getStyle(oH1,'margin'));
+
+
+		function getStyle(obj,attr){
+			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+		}
+	}
+ </script>
+ </head>
+ <body><!--网页主题-->
+	<h1>Web前端渣渣</h1>
+ </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>边框背景</title>
+  <style>
+  div{display:inline-block;text-align:center;line-height:210px;width:210px;height:210px;border:27px solid #000;}
+	#box{border-image:url(img/hh.png) 45 repeat;}
+	#box1{border-image:url(img/hh.png) 30 round;}
+	#box2{border-image:url(img/hh.png) 30 stretch;}
+	#box3{border-image:url(border.png) 30 stretch;}
+	#box4{-moz-border-left-colors:red green blue red green blue red green blue red green blue;}
+  </style>
+ </head>
+ <body><!--网页主题-->
+	<div id="box">repeat平铺</div>
+	<div id="box1">round圆满</div>
+	<div id="box2">stretch拉伸</div>
+	<div id="box3">border.png</div>
+	<div id="box4">border-left-colors:red,green,blue;边框颜色</div>
+ </body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>伪类</title>
+  <style>
+	p,input,h1{margin:0;padding:0;}
+	div{width:80px;height:80px;background:#000;text-align:center;font:bold 30px/80px serif,cursive;display:none;}
+	div[id="div1"],div[id="div2"],div[id="div3"]{color:#fff;}
+	#div{width:300px;height:300px;border:1px solid red;position:relative;background:none;display:block;}
+	div:target{display:block;margin:auto;}
+	input{display:inline-block;float:left;}
+	input:enabled{color:red;}
+	input:disabled{color:blue;}
+	input:checked{width:50px;height:50px;font:30px/50px serif,cursive;}
+	p{font:bold 30px/40px cursive,serif;text-shadow:1px 1px 1px #000;border:1px solid #ccc;margin-top:40px;color:#fff;}
+	p~h1{background:red;}
+  </style>
+  <script>
+	window.onload=function(){
+		var oDiv=document.getElementById('div');
+		oDiv.style.left=(document.body.clientWidth-parseInt(getStyle(oDiv,'width')))/2+'px';
+		function getStyle(obj,attr){
+			return obj.currentStyle? obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+		}
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+	<div id='div'>
+		<a href="#div1" target='view_window'>div1</a>
+		<a href="#div2">div2</a>
+		<a href="#div3">div3</a>
+		<div id='div1'>div1</div>
+		<div id='div2'>div2</div>
+		<div id='div3'>div3</div>
+		<input type="text" value='请输入' enabled="enabled">
+		<input type="text" value="请确认" disabled="disabled">
+		<input type="checkbox" value="">
+		<p>凌书阁</p>
+		<h1>h1</h1>
+		<span>span1</span>
+		<h1>h1</h1>
+	</div>
+	
+ </body>
+</html>

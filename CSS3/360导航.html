@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>360导航</title>
+  <style>
+  @keyframes mymove{
+	
+	0%{transform:scale(1)rotate(720deg);opacity:1;}
+	50%{transform:scale(2)rotate(720deg);opacity:0.2}
+	100%{transform:scale(1)rotate(720deg);opacity:0;}
+  }
+ 
+	#home{width:42px;height:42px;background:url(360img/home.png) no-repeat center;border-radius:50%;position:absolute;z-index:3;}
+	#list{width:42px;height:42px;z-index:2;position:absolute;}
+	#list img{border-radius:50%;position:absolute;transform-origin:center;left:0px;top:0px;transition:800ms;}
+	
+  </style>
+  <script>
+	window.onload=function(){
+		var oDiv=document.getElementById('home');
+		var aImg=document.getElementsByTagName('img');
+		
+		var onoff=true;
+
+		for(var i=0;i<aImg.length;i++){
+			aImg[i].onoff=true;
+			aImg[i].onclick=function(){
+				
+				this.style.animation="mymove 0.5s linear";
+				
+				
+				addEnd(this,end);	
+					
+				};
+				
+		}
+
+		function end(){
+			let L=this.style.left;
+			let	T=this.style.top;
+			let TS=this.style.transform;
+			
+			this.removeAttribute('style');
+			this.style.left=L;
+			this.style.top=T;
+			this.style.transform=TS;
+			removeEnd(this,end);
+		}
+		
+		function addEnd(obj,fn){
+
+			obj.addEventListener('webkitAnimationEnd',fn,false);
+			obj.addEventListener('animationend',fn,false);
+		}
+		function removeEnd(obj,fn){
+
+			obj.removeEventListener('webkitAnimationEnd',fn,false);
+			obj.removeEventListener('animationend',fn,false);
+		}
+		
+
+		oDiv.onclick=function(){
+			if(onoff){
+				
+				for(var i=0;i<aImg.length;i++){
+				
+				aImg[i].style.transform="rotate(360deg)";
+				aImg[i].style.transition=""+(500+100*i)/1000+"s";
+				//aImg[i].style.cssText="transform:rotate(720deg);transition:"+(500+150*i)/1000+"s;";
+				aImg[i].style.left=300*Math.cos((i*22.5)/180*Math.PI)+'px';
+				aImg[i].style.top=300*Math.sin((i*22.5)/180*Math.PI)+'px';
+			
+			}
+				
+			}
+			if(!onoff){
+				
+				for(var i=0;i<aImg.length;i++){
+				
+				aImg[i].style.transform="rotate(-360deg)";
+				aImg[i].style.transition=""+(500+100*(aImg.length-i-1))/1000+"s";
+					aImg[i].style.left=0+'px';
+					aImg[i].style.top=0+'px';
+					
+			}
+				
+			}
+			
+				if(i=aImg.length){onoff=!onoff};
+			
+			
+		}
+	
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+  <div id="home"></div>
+	<div id="list">
+		<img src="360img/prev.png" alt="">
+		<img src="360img/open.png" alt="">
+		<img src="360img/clos.png" alt="">
+		<img src="360img/full.png" alt="">
+		<img src="360img/refresh.png" alt="">
+	</div>
+  
+ </body>
+</html>

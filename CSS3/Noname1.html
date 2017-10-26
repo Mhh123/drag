@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style>
+  div{width:100px;height:100px;background:red;transition:1s;position:absolute;}
+  div:hover{width:200px;height:200px;background:blue;}
+  </style>
+ </head>
+ <body><!--网页主题-->
+ <div id='div'></div>
+ <script>
+	var oDiv=document.getElementById('div');
+		console.log(getStyle(oDiv,'width'));//100px;
+		console.log(document.body.clientWidth);//975
+		oDiv.style.left=(document.body.clientWidth-parseInt(getStyle(oDiv,'width')))/2+'px';
+	function getStyle(obj,attr){
+		return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+	}
+
+ </script>
+ </body>
+</html>

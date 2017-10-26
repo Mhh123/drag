@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>背景裁剪</title>
+  <style>
+	#box1{font:bold 150px/200px serif,cursive;text-align:center;width:400px;height:200px;background:url(img/zt.jpg) no-repeat;-webkit-background-clip:text;color:transparent;transition:1s;border:1px solid #ccc;}
+	#box1:hover{background-position:-200px -100px;}
+	div[class^='box2']{display:inline-block;margin:0 20px;box-sizing:border-box;width:400px;height:400px;padding:20px;text-align:center;color:red;font:20px/200px '宋体';background:url(img/zt.jpg)no-repeat 0px 0px,url(img/bg.jpg) repeat 0px 100px;background-origin:border-box;background-clip:border-box;background-size:100px 100px;border:30px solid rgba(0,0,0,0.2);}/* 注意加上border-image:url(img/hh.png) 30 repeat;之后border的透明度就会消失 */
+	div[class='box2-1']{background-clip:padding-box;}
+	div[class='box2-2']{background-clip:content-box;}
+	/* 背景图片裁剪
+	background-clip: border-box|padding-box|content-box;
+		值	描述	
+		border-box	背景被裁剪到边框盒。	
+		padding-box	背景被裁剪到内边距框。	
+		content-box	背景被裁剪到内容框。 
+
+	注意：不常见的background-clip:text;需结合color:tansparent;或者color:rgba(x,x,x,0);来使用；
+	文字意外的背景全部不显示；
+		*/
+  </style>
+ </head>
+ <body><!--网页主题-->
+  <div id="box1">OPQRST</div>
+  <div class="box2">background-clip:border-box</div>
+  <div class="box2-1">background-clip:padding-box</div>
+  <div class="box2-2">background-clip:content-box</div>
+ </body>
+</html>

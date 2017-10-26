@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>3d幻灯光片（1）</title>
+  <style>
+ /*  注意：景深需要加到3-d图是效果的元素的父级；不能乱加，否则影响视觉效果； */
+	div,ul,li{margin:0;padding:0;}
+	ul{list-style:none;perspective:800px;}
+	div{width:900px;height:900px;background:#ccc;padding:20px 100px;}
+	li{width:20px;height:300px;position:relative;transform-style:preserve-3d;float:left;transform-origin:center center -150px;}
+	li a{width:20px;height:300px;display:inline-block;position:absolute;}
+	li a:nth-of-type(1){background:url(3d/1.jpg) no-repeat;top:-300px;transform-origin:bottom;transform:rotateX(90deg);}
+	li a:nth-of-type(2){background:url(3d/2.jpg) no-repeat;top:0px;}
+	li a:nth-of-type(3){background:url(3d/3.jpg) no-repeat;top:0px;transform:translateZ(-300px)rotateX(180deg);}
+	li a:nth-of-type(4){background:url(3d/4.jpg) no-repeat;top:300px;transform-origin:top;transform:rotateX(-90deg);}
+	ol{float:left;list-style:none;}
+	ol li{width:30px;height:30px;border-radius:50%;text-align:center;color:white;font:25px/30px '宋体';background:rgba(0,0,0,0.2);}
+	.active{background:#ffcc00;}
+  </style>
+  <!--  注意：要先定位再旋转，否则影响后续3d旋转的效果，造成背景图片会倒立； -->
+  <script>
+	window.onload=function(){
+	
+		var oUl=document.getElementsByTagName('ul')[0];
+		var oUl1=document.getElementsByTagName('ol')[0];
+		var aLi1=oUl1.getElementsByTagName('li');
+		
+		var iw=20;
+		var len=oUl.clientWidth/iw;
+
+		for(var i=0;i<len;i++){
+			
+			var m=i*iw;
+
+			if(i<len/2-1){
+				
+				oUl.innerHTML+=`<li style="transition:${i*50}ms;"><a href="#" style="background-position:-${m}px 0px;"></a>
+				<a href="#" style="background-position:-${m}px 0px;"></a>
+				<a href="#" style="background-position:-${m}px 0px;"></a>
+				<a href="#" style="background-position:-${m}px 0px;"></a></li>`;	
+			}else{
+			
+				oUl.innerHTML+=`<li style="transition:${i*50}ms;z-index:${len-i};"><a href="#" style="background-position:-${m}px 0px;"></a>
+				<a href="#" style="background-position:-${m}px 0px;"></a>
+				<a href="#" style="background-position:-${m}px 0px;"></a>
+				<a href="#" style="background-position:-${m}px 0px;"></a></li>`;	
+
+			}
+			var aLi=oUl.getElementsByTagName('li');
+			
+		
+		}
+
+		for(var i=0;i<aLi1.length;i++){
+			aLi1[i].index=i;
+			aLi1[i].onclick=function(){
+				let m=-1*(this.index+1)*90;
+				
+				for(var j=0;j<aLi.length;j++){
+					//aLi[j].setAttribute('transform','rotateX('+m+'deg)');这个写法虽然加上了但是不起效
+					//aLi[j].style.transform="rotateX('+m+'+deg)";这个写法有问题
+					aLi[j].style.cssText+='transform:rotateX('+m+'deg)';
+				}
+			
+		}
+
+		}
+		
+
+
+
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+ 
+	<div id="div">
+	<h3> 注意：要先定位再旋转，否则影响后续3d旋转的效果，造成背景图片会倒立； </h3>
+		<ul>
+			
+		</ul>
+		<ol>
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ol>
+	</div>
+ </body>
+</html>

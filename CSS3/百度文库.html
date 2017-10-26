@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>百度文库</title>
+  <style>
+	body{background:#ccc url(img/bg1.jpg) no-repeat scroll center;}
+	div{width:200px;height:200px;position:absolute;}	p{padding:0;width:198px;height:30px;background:#fff;border:1px solid #000;}
+	p a{background:url(img/ppt.gif) no-repeat bottom left;height:20px;padding-left:20px;display:inline-block;font:15px/20px  arial,sans-serif;vertical-align:text-bottom;}
+	p a[href*='text']{background:url(img/text.gif) no-repeat bottom left;}
+	p a[href*='pdf']{background:url(img/swf.gif) no-repeat bottom left;}
+	p a[href*='word']{background:url(img/w.gif) no-repeat bottom left;}
+	p a[href*='excle']{background:url(img/x.gif) no-repeat bottom left;}
+  </style>
+  <script>
+	window.onload=function(){
+		var oDiv=document.getElementById('div');
+		oDiv.style.left=(document.body.clientWidth-parseInt(getStyle(oDiv,'width')))/2+'px';
+		function getStyle(obj,attr){
+			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+		}
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+  <div id='div'>
+	<p><a href="https://music.163.com/word">怒放的生命</a></p>
+	<p><a href="https://music.163.com/text">怒放的生命</a></p>
+	<p><a href="https://music.163.com/ppt">怒放的生命</a></p>
+	<p><a href="https://music.163.com/pdf">怒放的生命</a></p>
+	<p><a href="https://music.163.com/excle">怒放的生命</a></p>
+  </div>
+ </body>
+</html>

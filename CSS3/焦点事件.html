@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>焦点事件</title>
+  <script>
+	window.onload=function(){
+	
+		var aInp=document.getElementsByTagName('input');
+		for(var i=0;i<aInp.length;i++){
+			aInp[i].onfocus=function(){
+			this.placeholder="";
+		}
+			aInp[i].onblur=function(){
+			if(!this.value){
+				this.placeholder="请输入内容";
+			}
+			
+		}
+		}
+		/*obj.onfocus()给指定的元素设置焦点
+		  obj.onblur()给指定的元素设置取消焦点
+		*/
+		aInp[0].focus();
+
+
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+	<div>
+	<input type="text" style="width:200px" placeholder="请输入内容"><input type="button" value="搜索">
+		<input type="text" placeholder="请输入内容">
+		<input type="text" placeholder="请输入内容">
+	</div>
+ </body>
+</html>

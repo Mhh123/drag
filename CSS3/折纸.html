@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<!-- /*注意怎么控制元素停在动画的最后一帧呢？
+	就是改变元素的动画基点；
+	通过巧妙地运用class
+	从.wrap div{}到.wrap .show{transform:rotatex(0deg);animation:open 1.5s;}
+
+	注意这一步时间show下面的span修改样式 .wrap .show>span{box-shadow:inset 0 0 0 20px rgba(0,0,0,0);}
+*/ -->
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>折纸</title>
+  <style>
+  @keyframes open{
+	
+	0%{transform:rotatex(-90deg)}
+	30%{transform:rotatex(30deg)}
+	55%{transform:rotatex(-10deg)}
+	100%{transform:rotatex(0deg)}
+  }
+  @keyframes clos{
+	
+	0%{transform:rotatex(0deg)}
+	100%{transform:rotatex(-90deg)}
+  }
+	.wrap{margin:50px auto;display:inline-block;position:relative;perspective:800px;}
+	h3{margin:0;width:200px;position:absolute;line-height:31px;text-align:center;background:#ff66cc;z-index:8;}
+	.wrap div{margin:0;padding:0;position:absolute;top:31px;transform-style:preserve-3d;transform-origin:top;transform:rotatex(-90deg);}
+	span{width:200px;height:30px;display:block;font:12px/30px '宋体';box-shadow:inset 0 0 0 20px rgba(0,0,0,0.8);background:#66ff66;transition:0.6s;}
+	input{position:absolute;left:0;top:0;}
+	.wrap .show{transform:rotatex(0deg);animation:open 2s;}
+	.wrap .hide{transform:rotatex(-90deg);animation:clos 1s;}
+	.wrap .show>span{box-shadow:inset 0 0 0 20px rgba(0,0,0,0);}
+  </style>
+  <script>
+	window.onload=function(){
+		var oDiv=document.getElementsByTagName('div')[0];
+		var body=document.getElementsByTagName('body')[0];
+		var oInp=document.getElementsByTagName('input')[0];
+		var aDiv=oDiv.getElementsByTagName('div');
+		console.log(aDiv.length);
+		var i=0;
+		var Timer=null;
+		var onoff=true;
+		oInp.onclick=function(){
+			if(Timer==true){
+				return;
+			}
+			if(onoff){
+				
+					Timer=setInterval(fn1,200);
+				function fn1(){
+					if(i<aDiv.length){
+						aDiv[i].className="show";
+						i++;
+					}
+					if(i==aDiv.length){
+						clearInterval(Timer);
+						Timer=null;
+						onoff=!onoff;
+						}
+				}
+
+			}else{
+			
+					Timer=setInterval(fn2,200);
+				function fn2(){
+					if(i>=1){
+						aDiv[i-1].className="hide";
+						i--;
+					}
+					if(i==0){
+						clearInterval(Timer);
+						Timer=null;
+						onoff=!onoff;
+						}
+				}	
+			
+			}
+		}
+		oDiv.style.left=(body.clientWidth-parseInt(getStyle(oDiv,'width')))/2+'px';
+
+
+
+
+
+
+
+		function getStyle(obj,attr){
+			
+			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+		}
+	
+	
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+ <div class="wrap">
+	<h3>我是标题列表</h3>
+	<div  ><span>标题一</span>
+		<div ><span>标题二</span>
+			<div ><span>标题三</span>
+				<div ><span>标题四</span>
+					<div ><span>标题五</span>
+						<div ><span>标题六</span>
+							<div ><span>标题七</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	 </div>
+ </div>
+ <input type="button" value="点击">
+
+ </body>
+</html>

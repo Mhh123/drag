@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>折扇</title>
+  <style>
+	body{margin:0;padding:0;width:100%;height:700px;background:url("3d/b (1).png") no-repeat center;background-size:cover;}
+	div{width:90%;height:77%;margin:0;padding:0;position:relative;top:159px;left:0;}
+	ul{list-style:none;padding:0;margin:0;width:200px;height:50px;position:absolute;left:480px;top:330px;}
+	ul li{width:300px;height:50px;position:absolute;background:url("3d/b (2).png") no-repeat right;transform-origin:left center;border-radius:8px;transition:1s;}
+  </style>
+  <script>
+	window.onload=function(){
+	
+		var oDiv=document.getElementById('div');
+		var body=document.getElementsByTagName('body')[0];
+		var aLi=document.getElementsByTagName('li');
+		var arr=['#666666','#ccffff','#cccccc','#ff66ff','#9933cc','#33cc00','#6633cc','#ff9900','#000000','#cc66ff'];
+		var arr1=[];
+		for(var i=0;i<aLi.length;i++){
+				aLi[i].style.backgroundColor=arr[i];
+				aLi[i].style.transform="rotate("+(i-11)*13+"deg)";
+			}
+		
+		
+		for(var i=0;i<aLi.length;i++){
+			aLi[i].onclick=shrinkAll;
+		}
+		
+			
+		
+		var onoff=true;
+		function shrinkAll(){
+				if(onoff){
+					var old=this.style.transform;
+					for(var i=0;i<aLi.length;i++){
+					
+					arr1.push(aLi[i].style.transform);
+					aLi[i].style.transform=old;
+					
+					}
+					onoff=!onoff;
+				}else{
+				
+					for(var i=0;i<aLi.length;i++){
+					
+					aLi[i].style.transform=arr1[i];
+					
+					}
+					arr1=[];
+					onoff=!onoff;
+				}
+				
+		}
+		
+		oDiv.style.left=(body.clientWidth-parseInt(getStyle(oDiv,'width')))/2+'px';
+
+
+		function getStyle(obj,attr){
+			
+			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+		}
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+	<div id="div">
+		<ul>
+			<li ></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+ </body>
+</html>

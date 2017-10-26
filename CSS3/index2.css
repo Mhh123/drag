@@ -1,0 +1,5 @@
+@charset "utf-8";
+/* CSS Document */
+div{width:80%;border:1px solid red;font:15px/38px serif,cursive;padding:5px;text-indent:2em;
+-webkit-column-count:3;column-gap:20px;column-rule:2px outset green;background:#ccc;}
+p{margin:0;padding:0;}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>遮罩</title>
+  <style>
+	.box{width:600px;height:400px;background:url(img/zt.jpg) no-repeat center;background-size:cover;position:absolute;-webkit-mask:url(img/mask.png) no-repeat;-webkit-mask-position:51% 0%;transition:1s;}
+	.box:hover{-webkit-mask-position:-14% 0%;}
+  </style>
+  <script>
+	window.onload=function(){
+		var oDiv=document.getElementsByTagName('div')[0];
+		console.log(getStyle(oDiv,'width'));//600px;
+		console.log(document.body.clientWidth);//873
+		oDiv.style.left=(document.body.clientWidth-parseInt(getStyle(oDiv,'width')))/2+'px';
+		function getStyle(obj,attr){
+			return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr];
+		}
+		
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+	<div class="box">
+		
+	</div>
+ </body>
+ 
+</html>

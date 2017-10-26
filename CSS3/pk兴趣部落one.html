@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  
+  <title>pk兴趣部落one</title>
+  <style>
+	body{width:100%;height:100%;}
+	div[class*='my-main'] div:nth-of-type(1) div:nth-of-type(2) p{margin:0;padding:0;}
+	.box{width:60%;height:900px;;border:1px solid #ccc;background:#ccc;}
+	div{background:#fff;}
+	.my-head,.my-nav,div[class*='my-main'],.my-main.two,.my-main.three{width:100%;height:10%;background:#9bd2f0;display:-webkit-flex;display:flex;flex-wrap:wrap;}
+	.my-head{height:5%;justify-content:space-between;align-items:center;color:#fff;}
+	.my-head span{display:inline-block;width:14%;}
+	.my-head span:nth-of-type(1):before{content:"<";font:bold 20px/0% serif,cursive;vertical-align:middle;padding-right:7%;}
+	
+	.my-nav{height:5%;justify-content:space-around;align-items:center;background:#fff;}
+	div[class*='my-main']{height:10%;background:none;border-top:1px solid #ccc;}
+	div[class='my-main']{border-top:1px solid #ccc;}
+	
+	div[class*='my-main'] div,div[class~='my-main'] .a,div[class~='my-main'] .b{box-sizing:border-box;width:50%;height:100%;display:inline-block;}
+	div[class*='my-main'] div:nth-of-type(1) div{display:inline-block;float:left;}
+	div[class*='my-main'] div:nth-of-type(1) div:nth-of-type(1){background:url(img/a1.png) no-repeat center;background-size:cover;}
+	div[class~*='my-main'] div:nth-of-type(1) div:nth-of-type(2) p{height:50%;}
+	div[class*='my-main'] div:nth-of-type(1) div:nth-of-type(2) p:nth-of-type(1){text-align:center;font:bold 25px/150% serif,cursive;}
+	div[class*='my-main'] div:nth-of-type(1) div:nth-of-type(2) p:nth-of-type(2){color:#9a9a9a;display:flex;justify-content:space-around;font:16px/284% serif,cursive;}
+	div[class*='my-main'] div:nth-of-type(1) div:nth-of-type(2) p:nth-of-type(2){width:150%;}
+	div[class='my-main'] div:nth-of-type(1) div:nth-of-type(2) p:nth-of-type(2){width:100%;}
+	b{margin-left:2px;}
+	
+	div[class*='my-main'] div:nth-of-type(2){display:flex;justify-content:space-around;align-items:center;}
+	div[class*='my-main'] div:nth-of-type(2) a:nth-of-type(1){margin-left:20%;margin-top:3%;}
+	div[class*='my-main'] div:nth-of-type(2) a img{vertical-align:middle;}
+	.my-clips{border-top:1px solid #ccc;margin-top:3%;display:flex;justify-content:space-between;align-items:center;font:bold 18px/100% serif,cursive;}
+	.my-clips span:nth-of-type(1){margin-left:3%;}
+	.my-clips span:nth-of-type(2){margin-right:3%;}
+	.my-main.two,.my-main.three{height:100%;background:none;}
+	.my-main.one div:nth-of-type(1) div:nth-of-type(1){background:url(img/a1-1.png) no-repeat center;background-size:contain;}
+	.my-main.two div:nth-of-type(1) div:nth-of-type(1){background:url(img/b1-1.png) no-repeat center;background-size:contain;}
+	.my-main.three div:nth-of-type(1) div:nth-of-type(1){background:url(img/c1-1.png) no-repeat center;background-size:contain;}
+	/* span{display:inline-block;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;} */
+	.b p{margin-right:-50%;}
+	.b p span:nth-child(1){color:#fb5e3c;font-weight:bold;}
+	.a div:nth-child(1){margin-left:-4%;}
+	div[class='my-main'] .a div:nth-child(1){margin:0;}
+	#my-foot{width:100%;height:300%;margin-top:3%;padding:3%;padding-bottom:8%;}
+	#my-foot #top{margin:0;padding:0;height:20%;font:bold 20px/214% serif,cursive;}
+	#my-foot div[class="my-foot zore"]{box-sizing:border-box;width:100%;display:flex;}
+	#my-foot div[class="my-foot zore"] div{background:none;}
+	#my-foot div[class="my-foot zore"] .zero1,#my-foot div[class="my-foot zore"] .zero2,#my-foot div[class="my-foot zore"] .zero3{display:inline-block;box-shadow:1px 1px 1px rgba(0,0,0,0.2),-1px -1px 1px rgba(0,0,0,0.2);}
+	#my-foot div[class="my-foot zore"] .zero1 p,.zero2 p,.zero3 p{margin:0;padding:0;}
+	#my-foot div[class="my-foot zore"] .zero1 p:nth-child(1),.zero2 p:nth-child(1),.zero3 p:nth-child(1){height:70%;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+	#my-foot div[class="my-foot zore"] .zero1 p:nth-child(2),.zero2 p:nth-child(2),.zero3 p:nth-child(2){height:30%;}
+	#my-foot div[class="my-foot zore"] .zero1 p:nth-child(2) span,.zero2 p:nth-child(2) span,.zero3 p:nth-child(2) span{display:block;text-align:center;color:#9a9a9a;}
+	#my-foot div[class="my-foot zore"] .zero1 p:nth-child(1) span,.zero2 p:nth-child(1) span,.zero3 p:nth-child(1) span{display:inline-block;width:33.3333333%;height:33.333333%;text-align:center;font:bold 20px/288% serif,cursive;}
+	#my-foot div[class="my-foot zore"] .zero1 p:nth-child(1) span:nth-of-type(1){background:url(img/d1-1.png) no-repeat center;background-size:contain;}
+	#my-foot div[class="my-foot zore"] .zero2 p:nth-child(1) span:nth-of-type(1){background:url(img/d1-2.png) no-repeat center;background-size:contain;}
+	#my-foot div[class="my-foot zore"] .zero3 p:nth-child(1) span:nth-of-type(1){background:url(img/d1-3.png) no-repeat center;background-size:contain;}
+	#my-foot div[class="my-foot zore"] .zero1 p:nth-child(1) span:nth-of-type(3),.zero2 p:nth-child(1) span:nth-of-type(3),.zero3 p:nth-child(1) span:nth-of-type(3){border:1px solid #9a9a9a;height:20%;line-height:162%;}
+  </style>
+ </head>
+ <body><!--网页主题-->
+	<div class="box">
+		<div class="my-head">
+			<span>返回</span>
+			<span>兴趣部落</span>
+			<span>搜索</span>
+		</div>
+		<div class="my-nav">
+			<span>兴趣圈</span>
+			<span>最近</span>
+			<span>排行</span>
+			<span>发现</span>
+		</div>
+		<div class="my-main">
+			<div class="a">
+				<div></div>
+				<div>
+					<p>碎碎合</p>
+					<p><span>部落<b>2</b></span><span>话题<b>0</b></span></p>
+				</div>
+			</div>
+			<div class="b">
+				<a href="#_"><img src="img/s1-1.png" alt=""></a>
+				<a href="#_"><img src="img/s2-2.png" alt=""></a>
+			</div>
+		</div>
+		<div class="my-clips">
+			<span>最近访问</span><span><img src="img/s3-3.png" alt=""></span>
+		</div>
+		<div class="my-main one">
+			<div class="a">
+				<div></div>
+				<div>
+					<p>奇葩说</p>
+					<p><span>关注<strong>53.5</strong>万</span>
+					<span>话题<b>5.4</b>万</span></p>
+				</div>
+			</div>
+			<div class="b">
+				<p>
+					<span>99+</span>
+					<span>新话题</span>
+				</p>
+			</div>
+		
+			<div class="my-main two">
+			<div class="a">
+				<div></div>
+				<div>
+					<p>HTML5</p>
+					<p><span>关注<b>1.6</b>万</span>
+					<span>话题<b>1090</b></span></p>
+				</div>
+			</div>
+			<div class="b">
+				<p>
+					<span>60</span>
+					<span>新话题</span>
+				</p>
+			</div>
+			<div class="my-main three">
+			<div class="a">
+				<div></div>
+				<div>
+					<p>重庆</p>
+					<p><span>关注<b>111.7</b>万</span>
+					<span>话题<b>48.1</b>万</span></p>
+				</div>
+			</div>
+			<div class="b">
+				<p>
+					<span>99+</span>
+					<span>新话题</span>
+				</p>
+			</div>
+			<div id="my-foot">
+			<div id="top">推荐部落</div>
+			<div class="my-foot zore">
+				<div class="my-foot zero1">
+					<p>
+						<span></span>
+						<span>鹿晗</span>
+						<span>关注</span>
+					</p>
+					<p>
+						<span>赵丽颖部落粉丝也</span>
+						<span>喜欢</span>
+					</p>
+				</div>
+				<div class="my-foot zero2">
+					<p>
+						<span></span>
+						<span>鹿晗</span>
+						<span>关注</span>
+					</p>
+					<p>
+						<span>赵丽颖部落粉丝也</span>
+						<span>喜欢</span>
+					</p>
+				</div>
+				<div class="my-foot zero3">
+					<p>
+						<span></span>
+						<span>鹿晗</span>
+						<span>关注</span>
+					</p>
+					<p>
+						<span>赵丽颖部落粉丝也</span>
+						<span>喜欢</span>
+					</p>
+				</div>
+			</div>
+			</div>
+	</div>
+ </body>
+</html>

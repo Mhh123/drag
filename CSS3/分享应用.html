@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>分享应用</title>
+  <style>
+  body,div{margin:0;padding:0;}
+	#div1{position:relative;width:100px;height:400px;background:#000;left:-100px;transition:1s;}
+	#div2{position:absolute;width:30px;height:100px;left:100px;top:150px;background:red;color:white;text-align:center;}
+	#div3{position:absolute;width:500px;height:100px;left:300px;top:150px;background:red;}
+  </style>
+  <script>
+	window.onload=function(){
+		
+		var oDiv1=document.getElementById('div1');
+		var oDiv2=document.getElementById('div2');
+
+		oDiv1.onmouseover=function(){
+			oDiv1.style.left=0+'px';
+		}
+		oDiv1.onmouseout=function(){
+			oDiv1.style.left=-100+'px';
+		}
+
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+  <div id="div1">
+	<div id="div2">分析内容</div>
+	<div id="div3"></div>
+  </div>
+ </body>
+</html>

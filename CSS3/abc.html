@@ -1,0 +1,27 @@
+<body>
+		<input type="button" value="隐藏" id="t1" />
+		
+		<img src="img/fpz.png" id="img1"/>
+	</body>
+</html>
+<script>
+	window.onload=function(){
+	var oT1=document.getElementById("t1");
+	
+	var oImg=document.getElementById("img1");
+	   oT1.onclick=function(){
+	   console.log(oT1.value);
+	 
+	   	if(oT1.value=="显示"){
+	   			oImg.style.display="block";
+			oT1.value="隐藏";
+	   				
+	   	}else{
+	   		oImg.style.display="none";
+	   		oT1.value="显示";
+	   	}
+	   
+	   	
+	   }
+	   }
+</script>

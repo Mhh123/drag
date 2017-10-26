@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>3d数码宝贝</title>
+  <style>
+
+	#wrap{
+		width:100%;height:900px;background:#ccc;margin:0;padding:0;
+	}
+	ul{list-style:none;margin:0;padding:0;position:relative;perspective:800px;}
+	#haha{width:520px;height:400px;position:absolute;left:310px;top:80px;border:30px solid #000;border-image:url(img/hh.png) 30 repeat;}
+	ul li,span{width:400px;height:260px;background-size:400px 260px;-webkit-background-size:400px 260px;position:absolute;margin:50px 0px 50px 400px;transform-origin:bottom;transform-style:preserve-3d;-webkit-transform:rotateY(0deg)rotatez(90deg);transform:rotateY(0deg)rotatez(90deg);transition:1s;}
+	ul span:nth-of-type(1){left:-260px;z-index:8;}
+	ul span:nth-of-type(2){z-index:8;}
+	ul li:nth-of-type(1) {background:url("3d/a (1).jpg") no-repeat center;}
+	ul li:nth-of-type(2) {background:url("3d/a (2).jpg") no-repeat center;}
+	ul li:nth-of-type(3) {background:url("3d/a (3).jpg") no-repeat center;}
+	ul li:nth-of-type(4) {background:url("3d/a (4).jpg") no-repeat center;}
+	ul li:nth-of-type(5) {background:url("3d/a (5).jpg") no-repeat center;}
+	ul li:nth-of-type(6) {background:url("3d/a (6).jpg") no-repeat center;}
+	ul li:nth-of-type(7) {background:url("3d/a (7).jpg") no-repeat center;}
+	ul li:nth-of-type(8) {background:url("3d/a (8).jpg") no-repeat center;}
+	.show{transform:rotateY(-180deg)rotatez(90deg);}
+	.back{transform:rotateY(-0deg)rotatez(90deg);}
+  </style>
+  <script>
+	window.onload=function(){
+		var oUl=document.getElementsByTagName('ul')[0];
+		var aLi=document.getElementsByTagName('li');
+		var aSpan=document.getElementsByTagName('span');
+		var n=1;
+		var onoff=true;
+		console.log(aLi.length);
+		for(var i=1;i<aLi.length-1;i++){
+			aLi[i].className="";
+			aLi[i].style.zIndex=aLi.length-i;
+		}
+		aSpan[0].onclick=function(){
+			if(onoff){
+			if(1<=n<7){
+			
+				aLi[n].className="show";
+
+			}	
+				n++;
+			if(n==7){
+
+				onoff=!onoff;
+				n=6;
+
+			}
+			addEnd(this,tab1);
+			}
+			//aSpan[0].addEventListener("click",tab1(),false);
+			
+		}
+		aSpan[1].onclick=function(){
+			
+			if(onoff==false){
+			if(1<=n<7){
+
+				aLi[n].className="back";
+			}
+			n--;
+			addEnd(this,tab2);
+			if(n==0){
+
+				onoff=!onoff;
+				
+
+			}
+			}
+			
+			
+		}
+		function tab1(){
+			
+			aLi[n-1].style.zIndex="2";
+			
+			removeEnd(this,tab1);
+		}
+		function tab2(){
+			
+			aLi[n+1].style.zIndex=""+7-n+"";
+			if(n==0){n=1;}
+			removeEnd(this,tab2);
+		}
+
+		function addEnd(obj,fn){
+
+			this.addEventListener("click",fn,false);
+			//obj.addEventListener('click',fn,false);
+		}
+		function removeEnd(obj,fn){
+
+			obj.removeEventListener("click",fn,false);
+			//obj.removeEventListener('click',fn,false);
+		}
+		
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+	<div id="wrap">
+
+		<ul>
+			<div id="haha"></div>
+			<li class="show"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li class="back" style="z-index:-1;"></li>
+			<span></span>
+			<span></span>
+		</ul>
+	</div>
+ </body>
+</html>

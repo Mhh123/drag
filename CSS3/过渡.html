@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>过渡</title>
+  <style>
+	div[class^="box"]{display:inline-block;width:100px;height:100px;background:-webkit-linear-gradient(top left,red 0%,pink 25%,blue 50%,blue 75%,yellow 100%);transition:1s;margin:10% 0% 0% 10%;}
+	.box:hover{transform:scale(2);}
+	div[class="box1"]{background:-webkit-radial-gradient(circle at center,red 0,yellow 100%);background:radial-gradient(circle at center,red 0,green 35%,blue 70%,yellow 100%);transition: width 500ms;}
+	.box1:hover{width:200px;}
+	div[class="box2"]{transition:3s width cubic-bezier(Fast Out, Linear In);}
+	.box2:hover{width:500px;}
+	div[class="box3"]{background:blue;margin-left:22%;transition:1s width,1s height 1s,1s background 3s;}
+	.box3:hover{width:400px;height:200px;background:red;}
+	div[class="box4"],div[class="box6"]{transition:1s;transform:scale(1);}
+	div[class="box5"]{transition:1s width,1s height 1s;}
+	/* 注意
+	当前背景颜色单色(比如红色)；
+	背景颜色改变为
+		background:-webkit-linear-gradient();
+		background:radial-gradient(circle at center,red 0,green 35%,blue 70%,yellow 100%);
+		都是没有过渡效果的；
+	当前背景颜色 background:-webkit-linear-gradient();
+				 background:radial-gradient();
+				 改变为背景颜色单色会出现突然颜色消失等一会再显示的情况；
+	只有在背景颜色单色变单色的前提下，transition起效
+	*/
+  </style>
+  <script>
+	window.onload=function(){
+		//var oDiv=document.querySelector("div[class]");//<div class="box"></div>属性选择
+		var oDiv4=document.querySelector('div.box4');//<div class="box4"></div>类选择
+		var oDiv5=document.querySelector('div.box5');
+		var oDiv6=document.querySelector('div.box6');
+		var oDiv7=document.querySelector('div.box7');
+		//console.log(oDiv.offsetWidth);//100
+		oDiv4.onclick=function(){
+			this.style.width=this.offsetWidth+100+'px';
+			
+			
+			addEnd(this,function(){
+			alert(1);
+		});
+		}
+		oDiv5.onclick=function(){
+			this.style.width=this.offsetWidth+100+'px';
+			this.style.height=this.offsetHeight+100+'px';
+
+			
+			addEnd(this,function(){
+			alert(1);
+		});
+		}
+		//obj.addEvementListener(event,function,usecapture)
+		oDiv6.onclick=function(){
+			this.style.width=this.offsetWidth+100+'px';
+			
+
+			
+			addEnd(this,function(){
+			this.style.width=this.offsetWidth+100+'px';//注意：这里发生了改变；
+		});
+		}
+		oDiv7.onclick=function(){
+			
+			this.style.width=this.offsetWidth+100+'px';
+			addEnd(this,end);
+			
+		}
+
+		function end(){
+				
+				this.style.width=this.offsetWidth+100+'px';
+				removeEnd(this,end);
+				
+			}
+
+		function addEnd(obj,fn){
+
+			obj.addEventListener('WebkitTransitionEnd',fn,false);
+			obj.addEventListener('transitionend',fn,false);
+		}
+		function removeEnd(obj,fn){
+
+			obj.removeEventListener('WebkitTransitionEnd',fn,false);
+			obj.removeEventListener('transitionend',fn,false);
+		}
+
+	}
+  </script>
+ </head>
+ <body><!--网页主题-->
+	<div class="box">
+	
+	</div>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+	<div class="box5"></div>
+	<div class="box6"></div>
+	<div class="box7"></div>
+ </body>
+</html>
